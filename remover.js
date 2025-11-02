@@ -1,13 +1,15 @@
 function removeAliceElements() {
-  const futurisWrapper = document.querySelector('.FuturisSearchWrapper');
-  if (futurisWrapper) {
-    futurisWrapper.remove();
-  }
+  const selectorsToRemove = [
+    '.FuturisSearchWrapper',
+    'li.serp-item__futuris-snippet'
+  ];
 
-  const futurisSnippet = document.querySelector('.serp-item__futuris-snippet');
-  if (futurisSnippet) {
-    futurisSnippet.remove();
-  }
+  selectorsToRemove.forEach(selector => {
+    const element = document.querySelector(selector);
+    if (element) {
+      element.remove();
+    }
+  });
 
   const navTabs = document.querySelectorAll('a.HeaderNav-Tab');
   navTabs.forEach(tab => {
