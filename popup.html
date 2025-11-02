@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bye Bye Alice AI Settings</title>
+  <title>Bye-Bye, Alice AI!</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-  <div class="container">
-    <h3>Bye Bye Alice AI</h3>
-    <div class="setting">
-      <label for="toggle">Enable blocking</label>
-      <label class="switch">
-        <input type="checkbox" id="toggle">
-        <span class="slider round"></span>
-      </label>
-    </div>
+  <div class="header">
+    <img src="icon128.png" alt="Extension Icon">
+    <h1>Bye-Bye, Alice!</h1>
   </div>
+  <p>The extension is actively removing AI blocks from pages.</p>
+  <div class="status">
+    <span>Extension enabled</span>
+    <label class="switch">
+      <input type="checkbox" id="enabled-toggle" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+
   <div class="footer">
     <a href="https://github.com/1MaxSpb" target="_blank" class="footer-btn" title="GitHub">
       <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
@@ -22,13 +25,14 @@
       </svg>
       <span>GitHub</span>
     </a>
-    <a href="https://yookassa.ru/my/i/aQeVAobNcDYy/l" target="_blank" class="footer-btn donate" title="Donate">
+    <a href="ССЫЛКА_НА_ДОНАТ" target="_blank" class="footer-btn donate" title="Donate">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
       </svg>
       <span>Donate</span>
     </a>
   </div>
+
   <script src="popup.js"></script>
 </body>
 </html>

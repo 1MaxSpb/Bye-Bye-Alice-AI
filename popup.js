@@ -1,18 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const toggleSwitch = document.getElementById('toggle');
-
-  chrome.storage.sync.get(['isEnabled'], (result) => {
-    toggleSwitch.checked = result.isEnabled !== false;
+  const toggle = document.getElementById('enabled-toggle');
+  chrome.storage.sync.get('isEnabled', (data) => {
+    toggle.checked = data.isEnabled !== false;
   });
-
-  toggleSwitch.addEventListener('change', () => {
-    const isEnabled = toggleSwitch.checked;
-    chrome.storage.sync.set({ isEnabled: isEnabled });
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      const currentTab = tabs[0];
-      if (currentTab && currentTab.url && (currentTab.url.startsWith("https://yandex.ru/search") || currentTab.url.startsWith("https://yandex.com/search"))) {
-        chrome.tabs.reload(currentTab.id);
-      }
+  toggle.addEventListener('change', () => {
+    const isEnabled = toggle.checked;
+    chrome.storage.sync.set({ isEnabled: isEnabled }, () => {
+      const iconPath = isEnabled ? 'icon_active.png' : 'icon_inactive.png';
+      chrome.action.setIcon({ path: iconPath });
     });
   });
 });

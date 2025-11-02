@@ -1,18 +1,16 @@
 {
   "manifest_version": 3,
-  "name": "bye bye alice ai",
-  "version": "1.0",
-  "description": "Removes Yandex AI (Alice) blocks and tabs from search results for a cleaner interface.",
-  "permissions": ["storage"],
+  "name": "Bye-Bye, Alice AI!",
+  "version": "1.5",
+  "description": "Automatically removes Yandex's Alice AI blocks from web pages.",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": [
-        "*://*.yandex.ru/search/*",
-        "*://*.yandex.com/search/*"
-      ],
+      "matches": ["<all_urls>"],
       "js": ["remover.js"],
       "run_at": "document_start"
     }
@@ -20,11 +18,10 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "48": "icon_inactive.png"
+      "128": "icon_inactive.png"
     }
   },
   "icons": {
-    "48": "icon_active.png",
     "128": "icon128.png"
   }
 }
