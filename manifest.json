@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "bye bye alice ai",
+  "version": "1.0",
+  "description": "Removes Yandex AI (Alice) blocks and tabs from search results for a cleaner interface.",
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.yandex.ru/search/*",
+        "*://*.yandex.com/search/*"
+      ],
+      "js": ["remover.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icon_inactive.png"
+    }
+  },
+  "icons": {
+    "48": "icon_active.png",
+    "128": "icon128.png"
+  }
+}
