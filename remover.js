@@ -1,20 +1,19 @@
 const SELECTORS_TO_REMOVE = [
   '.FuturisSearchWrapper',
   'a[href*="promo=force_neuro"]',
-  'li.serp-item.serp-item__futuris-snippet'
+  'li.serp-item.serp-item__futuris-snippet',
+  'li[data-fast-name="neuro_answer"]'
 ];
 let isEnabled = true;
 
 function removeTargetElements() {
   if (!isEnabled) return;
-  try {
-    SELECTORS_TO_REMOVE.forEach(selector => {
-      const elements = document.querySelectorAll(selector);
-      if (elements.length > 0) {
-        elements.forEach(el => el.remove());
-      }
-    });
-  } catch (error) {}
+  SELECTORS_TO_REMOVE.forEach(selector => {
+    const elements = document.querySelectorAll(selector);
+    if (elements.length > 0) {
+      elements.forEach(el => el.remove());
+    }
+  });
 }
 
 function blockPromoNavigation(event) {
